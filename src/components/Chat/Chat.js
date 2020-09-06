@@ -42,14 +42,14 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on('message', message => {
-      setMessages([ ...messages, message ]);
+      setMessages(msgs => [ ...msgs, message ]);
     });
 
     socket.on("roomData", ({ users }) => {
       setUsers(users);
     });
 
- }, [messages]);
+ }, []);
 
   const sendMessage = (event) => {
     event.preventDefault();
